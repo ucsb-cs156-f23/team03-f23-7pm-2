@@ -10,7 +10,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Map;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
@@ -79,7 +78,6 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
     }
 
     @Test
-    @Disabled
     public void logged_out_users_cannot_delete() throws Exception {
         mockMvc.perform(delete("/api/ucsbdiningcommonsmenuitem"))
                 .andExpect(status().is(403));
@@ -101,7 +99,6 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
 
     @WithMockUser()
     @Test
-    @Disabled
     public void logged_in_regular_users_cannot_delete() throws Exception {
         mockMvc.perform(delete("/api/ucsbdiningcommonsmenuitem"))
                 .andExpect(status().is(403)); // only admins can post
@@ -217,7 +214,6 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
 
     @WithMockUser(roles = { "ADMIN", "USER" })
     @Test
-    @Disabled
     public void admin_can_delete_a_menuitem() throws Exception {
         // arrange
 
@@ -245,7 +241,6 @@ public class UCSBDiningCommonsMenuItemControllerTests extends ControllerTestCase
 
     @WithMockUser(roles = { "ADMIN", "USER" })
     @Test
-    @Disabled
     public void admin_tries_to_delete_non_existant_commonsmenuitem_and_gets_right_error_message()
             throws Exception {
         // arrange
