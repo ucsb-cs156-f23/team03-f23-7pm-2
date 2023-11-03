@@ -1,6 +1,6 @@
 const recommendationRequestFixtures = {
     oneRecommendation: {
-        "id": 1,
+        "id": "1",
         "requesterEmail": "requesterEmail1",
         "professorEmail": "professorEmail1",
         "explanation": "explanation1",
@@ -10,7 +10,7 @@ const recommendationRequestFixtures = {
     },
     threeRecommendation: [
         {
-            "id": 1,
+            "id": "1",
             "requesterEmail": "requesterEmail1",
             "professorEmail": "professorEmail1",
             "explanation": "explanation1",
@@ -19,7 +19,7 @@ const recommendationRequestFixtures = {
             "done": false,
         },
         {
-            "id": 2,
+            "id": "2",
             "requesterEmail": "requesterEmail2",
             "professorEmail": "professorEmail2",
             "explanation": "explanation2",
@@ -28,7 +28,7 @@ const recommendationRequestFixtures = {
             "done": false,
         },
         {
-            "id": 3,
+            "id": "3",
             "requesterEmail": "requesterEmail3",
             "professorEmail": "professorEmail3",
             "explanation": "explanation3",
