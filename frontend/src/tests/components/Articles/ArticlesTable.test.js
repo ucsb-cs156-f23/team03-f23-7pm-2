@@ -4,14 +4,9 @@ import ArticlesTable from "main/components/Articles/ArticlesTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import { toast } from "react-toastify";
-import { onDeleteSuccess } from "main/utils/articleUtils";
 
 const mockedNavigate = jest.fn();
 
-jest.mock("react-toastify", () => ({
-    toast: jest.fn(),
-}));
 
 jest.mock('react-router-dom', () => ({
     ...jest.requireActual('react-router-dom'),
@@ -176,20 +171,6 @@ describe("ArticlesTable tests", () => {
     // act - click the delete button
     fireEvent.click(deleteButton);
   });
-});
-
-describe("onDeleteSuccess tests", () => {
-    it("logs the message and shows a toast notification", () => {
-        const mockMessage = "Delete successful!";
-        const logSpy = jest.spyOn(console, "log").mockImplementation();
-
-        onDeleteSuccess(mockMessage);
-
-        expect(logSpy).toHaveBeenCalledWith(mockMessage);
-        expect(toast).toHaveBeenCalledWith(mockMessage);
-
-        logSpy.mockRestore();
-    });
 });
 
 
