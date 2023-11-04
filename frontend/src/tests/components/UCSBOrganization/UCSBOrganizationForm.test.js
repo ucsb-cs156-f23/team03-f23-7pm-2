@@ -111,7 +111,7 @@ describe("UCSBOrganization tests", () => {
 
     });
 
-    test("that the data-testid has a valid suffix ", async () => {
+    test("that the data-testid has a valid suffix", async () => {
         render(
             <QueryClientProvider client={queryClient}>
                 <Router>
