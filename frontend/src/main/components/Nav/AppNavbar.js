@@ -50,6 +50,13 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   </NavDropdown>
                 )
               }
+              {
+                hasRole(currentUser, "ROLE_USER") && (
+                  <>
+                    <Nav.Link as={NavLink} to="/helprequests">HelpRequests</Nav.Link>
+                  </>
+                )
+              }
             </Nav>
             {
               currentUser && currentUser.loggedIn && (
@@ -58,6 +65,7 @@ export default function AppNavbar({ currentUser, systemInfo, doLogout, currentUr
                   <Nav.Link as={Link} to="/ucsbdates">UCSB Dates</Nav.Link>
                   <Nav.Link as={Link} to="/placeholder">Placeholder</Nav.Link>
                   <Nav.Link as={Link} to="/articles">Articles</Nav.Link>
+                  <Nav.Link as={Link} to="/helprequests">HelpRequests</Nav.Link>
                 </>
               )
             }
