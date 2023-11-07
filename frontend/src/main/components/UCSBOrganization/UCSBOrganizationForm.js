@@ -39,14 +39,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgCode">orgCode</Form.Label>
+                <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgCode"}
                     id="orgCode"
                     type="text"
                     isInvalid={Boolean(errors.orgCode)}
                     {...register("orgCode", {
-                        required: "orgCode is required.",
+                        required: "Organization Code is required.",
                         maxLength : {
                             value: 30,
                             message: "Max length 30 characters"
@@ -59,14 +59,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslationShort">orgTranslationShort</Form.Label>
+                <Form.Label htmlFor="orgTranslationShort">Organization Translation Short</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslationShort"}
                     id="orgTranslationShort"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslationShort)}
                     {...register("orgTranslationShort", {
-                        required: "orgTranslationShort is required."
+                        required: "Organization Translation Short is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -75,14 +75,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="orgTranslation">orgTranslation</Form.Label>
+                <Form.Label htmlFor="orgTranslation">Organization Translation</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-orgTranslation"}
                     id="orgTranslation"
                     type="text"
                     isInvalid={Boolean(errors.orgTranslation)}
                     {...register("orgTranslation", {
-                        required: "orgTranslation is required."
+                        required: "Organization Translation is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">
@@ -91,14 +91,14 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="inactive">inactive</Form.Label>
+                <Form.Label htmlFor="inactive">Inactive</Form.Label>
                 <Form.Control
                     data-testid={testIdPrefix + "-inactive"}
                     id="inactive"
                     type="text"
                     isInvalid={Boolean(errors.inactive)}
                     {...register("inactive", {
-                        required: "inactive must be true or false.",
+                        required: "Inactive must be true or false.",
                         pattern: bool_regex
                     })}
                 />
