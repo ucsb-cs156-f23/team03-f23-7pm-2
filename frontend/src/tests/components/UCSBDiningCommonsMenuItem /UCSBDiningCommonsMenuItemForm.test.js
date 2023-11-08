@@ -94,14 +94,8 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
         fireEvent.change(stationInput, { target: { value: "a".repeat(31) } });
         fireEvent.click(submitButton);
 
-        await waitFor(() => {
-            expect(screen.getByText(/Dining Commons Code max length 30 characters/)).toBeInTheDocument();
-        });
-        await waitFor(() => {
-            expect(screen.getByText(/Name max length 30 characters/)).toBeInTheDocument();
-        });
-        await waitFor(() => {
-            expect(screen.getByText(/Station max length 30 characters/)).toBeInTheDocument();
-        });
+        await screen.findByText(/Dining Commons Code max length 30 characters/);
+        expect(screen.getByText(/Name max length 30 characters/)).toBeInTheDocument();
+        expect(screen.getByText(/Station max length 30 characters/)).toBeInTheDocument();
     });
 });
