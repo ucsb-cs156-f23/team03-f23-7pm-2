@@ -25,14 +25,14 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>9/9</span>
+                <span class='fraction'>13/13</span>
             </div>
         
             
@@ -46,7 +46,7 @@
             <div class='fl pad1y space-right2'>
                 <span class="strong">100% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/6</span>
+                <span class='fraction'>5/5</span>
             </div>
         
             
@@ -207,8 +207,7 @@
 <a name='L142'></a><a href='#L142'>142</a>
 <a name='L143'></a><a href='#L143'>143</a>
 <a name='L144'></a><a href='#L144'>144</a>
-<a name='L145'></a><a href='#L145'>145</a>
-<a name='L146'></a><a href='#L146'>146</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<a name='L145'></a><a href='#L145'>145</a></td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -220,18 +219,17 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
+<span class="cline-any cline-yes">12x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">6x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
@@ -354,55 +352,52 @@
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">import { Button, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form'
+import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 &nbsp;
-function RecommendationRequestForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 &nbsp;
-    
+function RecommendationRequestForm({ initialRecommendation, submitAction, buttonLabel = "Create" }) {
+&nbsp;
     // Stryker disable all
     const {
         register,
         formState: { errors },
         handleSubmit,
     } = useForm(
-        { defaultValues: initialContents || {}, }
+        { defaultValues: initialRecommendation || {} }
     );
-    // Stryker restore all
-   
+    // Stryker enable all
+&nbsp;
     const navigate = useNavigate();
 &nbsp;
     const isodate_regex = /(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d\.\d+)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d:[0-5]\d)|(\d{4}-[01]\d-[0-3]\dT[0-2]\d:[0-5]\d)/i;
-&nbsp;
-    const testIdPrefix = "RecommendationRequestForm";
-&nbsp;
+    
     return (
+&nbsp;
         &lt;Form onSubmit={handleSubmit(submitAction)}&gt;
 &nbsp;
-            {initialContents &amp;&amp; (
+            {initialRecommendation &amp;&amp; (
                 &lt;Form.Group className="mb-3" &gt;
                     &lt;Form.Label htmlFor="id"&gt;Id&lt;/Form.Label&gt;
                     &lt;Form.Control
-                        data-testid={testIdPrefix + "-id"}
+                        data-testid="RecommendationRequestForm-id"
                         id="id"
                         type="text"
                         {...register("id")}
-                        value={initialContents.id}
+                        value={initialRecommendation.id}
                         disabled
                     /&gt;
                 &lt;/Form.Group&gt;
             )}
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="requesterEmail"&gt;RequesterEmail&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="requesterEmail"&gt;Requester Email&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={testIdPrefix + "-requesterEmail"}
-                    id="requesterEmail"
+                    data-testid="RecommendationRequestForm-requesterEmail"
+                    requesterEmail="requesterEmail"
                     type="text"
                     isInvalid={Boolean(errors.requesterEmail)}
-                    {...register("requesterEmail", {
-                        required: "requesterEmail is required."
-                        })}
+                    {...register("requesterEmail", { required: "requesterEmail is required."})}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
                     {errors.requesterEmail?.message}
@@ -410,15 +405,13 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="professorEmail"&gt;ProfessorEmail&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="professorEmail"&gt;Professor Email&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={testIdPrefix + "-professorEmail"}
-                    id="professorEmail"
+                    data-testid="RecommendationRequestForm-professorEmail"
+                    professorEmail="professorEmail"
                     type="text"
-                    isInvalid={Boolean(errors.description)}
-                    {...register("professorEmail", {
-                        required: "professorEmail is required."
-                    })}
+                    isInvalid={Boolean(errors.professorEmail)}
+                    {...register("professorEmail", { required: "professorEmail is required."})}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
                     {errors.professorEmail?.message}
@@ -428,13 +421,11 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
             &lt;Form.Group className="mb-3" &gt;
                 &lt;Form.Label htmlFor="explanation"&gt;Explanation&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid={testIdPrefix + "-explanation"}
-                    id="explanation"
+                    data-testid="RecommendationRequestForm-explanation"
+                    explanation="explanation"
                     type="text"
                     isInvalid={Boolean(errors.explanation)}
-                    {...register("explanation", {
-                        required: "explanation is required."
-                    })}
+                    {...register("explanation", { required: "explanation is required."})}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
                     {errors.explanation?.message}
@@ -442,53 +433,59 @@ function RecommendationRequestForm({ initialContents, submitAction, buttonLabel 
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="dateRequested"&gt;DateRequested&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="dateRequested"&gt;Date Requested&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid="Recommendation-dateRequested"
-                    id="dateRequested"
-                    type="datetime-local"
+                    data-testid="RecommendationRequestForm-dateRequested"
+                    dateRequested="dateRequested"
+                    type="text"
                     isInvalid={Boolean(errors.dateRequested)}
-                    {...register("dateRequested", { required: true, pattern: isodate_regex })}
+                    {...register("dateRequested", { required: true, pattern: isodate_regex})}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.dateRequested &amp;&amp; 'dateRequested is required. '}
+                    {errors.dateRequested &amp;&amp; "dateRequested is required."}
+                    {errors.dateRequested?.type === 'pattern' &amp;&amp; 'dateRequested must be in ISO format, e.g. 2022-01-02T15:30'}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="dateNeeded"&gt;DateNeeded&lt;/Form.Label&gt;
+                &lt;Form.Label htmlFor="dateNeeded"&gt;Date Needed&lt;/Form.Label&gt;
                 &lt;Form.Control
-                    data-testid="Recommendation-dateNeeded"
-                    id="dateNeeded"
-                    type="datetime-local"
+                    data-testid="RecommendationRequestForm-dateNeeded"
+                    dateNeeded="dateNeeded"
+                    type="text"
                     isInvalid={Boolean(errors.dateNeeded)}
-                    {...register("dateNeeded", { required: true, pattern: isodate_regex })}
+                    {...register("dateNeeded", { required: true, pattern: isodate_regex})}
                 /&gt;
                 &lt;Form.Control.Feedback type="invalid"&gt;
-                    {errors.dateNeeded &amp;&amp; 'dateNeeded is required. '}
+                {errors.dateNeeded &amp;&amp; "dateNeeded is required."}
+                {errors.dateNeeded?.type === 'pattern' &amp;&amp; 'dateNeeded must be in ISO format, e.g. 2022-01-02T15:30'}
                 &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Form.Group className="mb-3" &gt;
-                &lt;Form.Label htmlFor="done"&gt;Done?&lt;/Form.Label&gt;
-                &lt;Form.Check
-                    data-testid="Recommendation-done"
-                    type="checkbox"
-                    id="done"
-                    {...register("done")}
+                &lt;Form.Label htmlFor="done"&gt;Done&lt;/Form.Label&gt;
+                &lt;Form.Control
+                    data-testid="RecommendationRequestForm-done"
+                    done="done"
+                    type="text"
+                    isInvalid={Boolean(errors.done)}
+                    {...register("done", { required: "done is required."})}
                 /&gt;
+                &lt;Form.Control.Feedback type="invalid"&gt;
+                    {errors.done?.message}
+                &lt;/Form.Control.Feedback&gt;
             &lt;/Form.Group&gt;
 &nbsp;
             &lt;Button
                 type="submit"
-                data-testid={testIdPrefix + "-submit"}
+                data-testid="RecommendationRequestForm-submit"
             &gt;
                 {buttonLabel}
             &lt;/Button&gt;
             &lt;Button
                 variant="Secondary"
                 onClick={() =&gt; navigate(-1)}
-                data-testid={testIdPrefix + "-cancel"}
+                data-testid="RecommendationRequestForm-cancel"
             &gt;
                 Cancel
             &lt;/Button&gt;
@@ -505,7 +502,7 @@ export default RecommendationRequestForm;</pre></td></tr></table></pre>
             <div class='footer quiet pad2 space-top1 center small'>
                 Code coverage generated by
                 <a href="https://istanbul.js.org/" target="_blank" rel="noopener noreferrer">istanbul</a>
-                at Tue Nov 07 2023 15:42:21 GMT-0800 (Pacific Standard Time)
+                at Tue Nov 07 2023 22:12:11 GMT-0800 (Pacific Standard Time)
             </div>
         <script src="../../prettify.js"></script>
         <script>
