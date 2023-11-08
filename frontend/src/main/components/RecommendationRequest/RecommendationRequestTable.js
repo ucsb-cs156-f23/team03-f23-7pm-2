@@ -29,7 +29,7 @@ export default function RecommendationRequestTable({ recommendations, currentUse
 
     const columns = [
         {
-            Header: 'ID',
+            Header: 'Id',
             accessor: 'id', // accessor is the "key" in the data
         },
         {
