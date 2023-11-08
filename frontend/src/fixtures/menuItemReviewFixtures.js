@@ -9,23 +9,23 @@ const menuItemReviewFixtures = {
     menuItemReview2: [
         {
             "id": 1,
-            "itemId": 2,
-            "stars": 5,
-            "localDateTime": "2022-01-02T12:00:00",
-            "comments": "This stinks"
+            "itemId": 50,
+            "stars": -1,
+            "localDateTime": "2023-01-02T12:00:00",
+            "comments": "This overly"
         },
         {
             "id": 2,
             "itemId": 5,
             "stars": 5,
-            "localDateTime": "2022-01-02T12:00:00",
+            "localDateTime": "2022-04-03T12:00:00",
             "comments": "This stinks"
         },
         {
             "id": 3,
-            "itemId": 8,
+            "itemId": 20,
             "stars": 3,
-            "localDateTime": "2022-01-02T12:00:00",
+            "localDateTime": "2022-07-04T12:00:00",
             "comments": "This massively stinks"
         }
     ],
