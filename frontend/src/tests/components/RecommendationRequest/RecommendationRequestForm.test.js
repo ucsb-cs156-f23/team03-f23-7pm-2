@@ -16,7 +16,7 @@ jest.mock('react-router-dom', () => ({
 describe("RecommendationRequestForm tests", () => {
     const queryClient = new QueryClient();
 
-    const expectedHeaders = ["Requester Email", "Professor Email", "Explanation", "Date Requested", "Date Needed", "Done"];
+    const expectedHeaders = ["RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
     const testId = "RecommendationRequestForm";
 
     test("renders correctly with no initialContents", async () => {
@@ -52,6 +52,9 @@ describe("RecommendationRequestForm tests", () => {
             const header = screen.getByText(headerText);
             expect(header).toBeInTheDocument();
         });
+
+        expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
+        expect(screen.getByText(`Id`)).toBeInTheDocument();
     });
 
 
@@ -91,16 +94,6 @@ describe("RecommendationRequestForm tests", () => {
         expect(screen.getByText(/dateRequested is required/)).toBeInTheDocument();
         expect(screen.getByText(/dateNeeded is required/)).toBeInTheDocument();
 
-    });
-
-    test("that the correct data-testids are present", () => {
-        render(
-            <QueryClientProvider client={queryClient}>
-                <Router>
-                    <RecommendationRequestForm />
-                </Router>
-            </QueryClientProvider>
-        );
     });
 
 });

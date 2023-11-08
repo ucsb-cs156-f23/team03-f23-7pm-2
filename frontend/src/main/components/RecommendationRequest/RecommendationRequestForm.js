@@ -1,9 +1,9 @@
 import { Button, Form } from 'react-bootstrap';
-import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form'
 import { useNavigate } from 'react-router-dom';
 
 
-function RecommendationRequestForm({ initialRecommendation, submitAction, buttonLabel = "Create" }) {
+function RecommendationRequestForm({ initialContents, submitAction, buttonLabel = "Create" }) {
 
     // Stryker disable all
     const {
@@ -11,7 +11,7 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
         formState: { errors },
         handleSubmit,
     } = useForm(
-        { defaultValues: initialRecommendation || {} }
+        { defaultValues: initialContents || {} }
     );
     // Stryker enable all
 
@@ -23,7 +23,7 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
 
         <Form onSubmit={handleSubmit(submitAction)}>
 
-            {initialRecommendation && (
+            {initialContents && (
                 <Form.Group className="mb-3" >
                     <Form.Label htmlFor="id">Id</Form.Label>
                     <Form.Control
@@ -31,14 +31,14 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
                         id="id"
                         type="text"
                         {...register("id")}
-                        value={initialRecommendation.id}
+                        value={initialContents.id}
                         disabled
                     />
                 </Form.Group>
             )}
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="requesterEmail">Requester Email</Form.Label>
+                <Form.Label htmlFor="requesterEmail">RequesterEmail</Form.Label>
                 <Form.Control
                     data-testid="RecommendationRequestForm-requesterEmail"
                     requesterEmail="requesterEmail"
@@ -52,7 +52,7 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="professorEmail">Professor Email</Form.Label>
+                <Form.Label htmlFor="professorEmail">ProfessorEmail</Form.Label>
                 <Form.Control
                     data-testid="RecommendationRequestForm-professorEmail"
                     professorEmail="professorEmail"
@@ -80,7 +80,7 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="dateRequested">Date Requested</Form.Label>
+                <Form.Label htmlFor="dateRequested">DateRequested</Form.Label>
                 <Form.Control
                     data-testid="RecommendationRequestForm-dateRequested"
                     dateRequested="dateRequested"
@@ -90,12 +90,11 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
                 />
                 <Form.Control.Feedback type="invalid">
                     {errors.dateRequested && "dateRequested is required."}
-                    {errors.dateRequested?.type === 'pattern' && 'dateRequested must be in ISO format, e.g. 2022-01-02T15:30'}
                 </Form.Control.Feedback>
             </Form.Group>
 
             <Form.Group className="mb-3" >
-                <Form.Label htmlFor="dateNeeded">Date Needed</Form.Label>
+                <Form.Label htmlFor="dateNeeded">DateNeeded</Form.Label>
                 <Form.Control
                     data-testid="RecommendationRequestForm-dateNeeded"
                     dateNeeded="dateNeeded"
@@ -104,8 +103,7 @@ function RecommendationRequestForm({ initialRecommendation, submitAction, button
                     {...register("dateNeeded", { required: true, pattern: isodate_regex})}
                 />
                 <Form.Control.Feedback type="invalid">
-                {errors.dateNeeded && "dateNeeded is required."}
-                {errors.dateNeeded?.type === 'pattern' && 'dateNeeded must be in ISO format, e.g. 2022-01-02T15:30'}
+                    {errors.dateNeeded && "dateNeeded is required."}
                 </Form.Control.Feedback>
             </Form.Group>
 
