@@ -46,7 +46,7 @@ function UCSBDiningCommonsMenuItemForm({initialContents, submitAction, buttonLab
                         required: "Dining Commons Code is required.",
                         maxLength: {
                             value: 30,
-                            message: "Max length 30 characters"
+                            message: "Dining Commons Code max length 30 characters"
                         }
                     })}
                 />
@@ -66,7 +66,7 @@ function UCSBDiningCommonsMenuItemForm({initialContents, submitAction, buttonLab
                         required: "Name is required.",
                         maxLength: {
                             value: 30,
-                            message: "Max length 30 characters"
+                            message: "Name max length 30 characters"
                         }
                     })}
                 />
@@ -86,7 +86,7 @@ function UCSBDiningCommonsMenuItemForm({initialContents, submitAction, buttonLab
                         required: "Station is required.",
                         maxLength: {
                             value: 30,
-                            message: "Max length 30 characters"
+                            message: "Station max length 30 characters"
                         }
                     })}
                 />
