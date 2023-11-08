@@ -28,7 +28,7 @@ const helpRequestFixtures = {
             "id": 3,
             "requesterEmail" : "christianoguacho@ucsb.edu",
             "teamId" : "team03",
-            "tableOrBreakoutRoom" : "team03",
+            "tableOrBreakoutRoom" : "table",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "swagger bug",
             "solved" : "False"
