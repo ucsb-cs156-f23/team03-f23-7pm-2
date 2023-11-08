@@ -1,9 +1,9 @@
 import { fireEvent, render, waitFor, screen } from "@testing-library/react";
+import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 import MenuItemReviewTable from "main/components/MenuItemReview/MenuItemReviewTable"
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
 import { currentUserFixtures } from "fixtures/currentUserFixtures";
-import { menuItemReviewFixtures } from "fixtures/menuItemReviewFixtures";
 
 
 const mockedNavigate = jest.fn();
@@ -23,9 +23,9 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.menuItemReview3} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.menuItemReview2} currentUser={currentUser} />
         </MemoryRouter>
-      </QueryClientProvider>
+      </QueryClientProvider> 
 
     );
 
@@ -54,14 +54,14 @@ describe("UserTable tests", () => {
 
   });
 
-  test("Has the expected colum headers and content for adminUser", () => {
+  test("Has the expected column headers and content for adminUser", () => {
 
     const currentUser = currentUserFixtures.adminUser;
 
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.menuItemReview3} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.menuItemReview2} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
@@ -80,9 +80,8 @@ describe("UserTable tests", () => {
       const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
       expect(header).toBeInTheDocument();
     });
-
     expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2"); 
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -101,7 +100,7 @@ describe("UserTable tests", () => {
     render(
       <QueryClientProvider client={queryClient}>
         <MemoryRouter>
-          <MenuItemReviewTable dates={menuItemReviewFixtures.menuItemReview3} currentUser={currentUser} />
+          <MenuItemReviewTable reviews={menuItemReviewFixtures.menuItemReview2} currentUser={currentUser} />
         </MemoryRouter>
       </QueryClientProvider>
 
