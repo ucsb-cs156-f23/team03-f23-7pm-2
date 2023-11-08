@@ -96,7 +96,11 @@ describe("UCSBDiningCommonsMenuItemForm tests", () => {
 
         await waitFor(() => {
             expect(screen.getByText(/Dining Commons Code max length 30 characters/)).toBeInTheDocument();
+        });
+        await waitFor(() => {
             expect(screen.getByText(/Name max length 30 characters/)).toBeInTheDocument();
+        });
+        await waitFor(() => {
             expect(screen.getByText(/Station max length 30 characters/)).toBeInTheDocument();
         });
     });
