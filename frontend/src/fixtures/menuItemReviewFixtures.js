@@ -26,12 +26,12 @@ const menuItemReviewFixtures = {
             "itemId": 20,
             "stars": 3,
             "localDateTime": "2022-07-04T12:00:00",
-            "comments": "This massively stinks"
+            "comments": "This massively stink s"
         }
     ],
     menuItemReview3: [
         {
-            "id": 4,
+            "id": 1,
             "itemId": 33,
             "stars": 3,
             "localDateTime": "2022-01-02T12:00:00",
