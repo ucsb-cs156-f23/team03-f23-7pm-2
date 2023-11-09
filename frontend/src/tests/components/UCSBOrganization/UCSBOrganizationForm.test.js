@@ -14,7 +14,7 @@ jest.mock('react-router-dom', () => ({
 describe("UCSBOrganization tests", () => {
     const queryClient = new QueryClient();
 
-    const expectedHeaders = ["orgCode", "orgTranslationShort", "orgTranslation", "inactive"];
+    const expectedHeaders = ["Organization Code", "Organization Translation Short", "Organization Translation", "Inactive"];
     const testId = "UCSBOrganizationForm";
 
     test("renders correctly with no initialContents", async () => {
@@ -86,10 +86,10 @@ describe("UCSBOrganization tests", () => {
         const submitButton = screen.getByText(/Create/);
         fireEvent.click(submitButton);
 
-        await screen.findByText(/orgCode is required./);
-        expect(screen.getByText(/orgTranslationShort is required./)).toBeInTheDocument();
-        expect(screen.getByText(/orgTranslation is required./)).toBeInTheDocument();
-        expect(screen.getByText(/inactive must be true or false./)).toBeInTheDocument();
+        await screen.findByText(/Organization Code is required./);
+        expect(screen.getByText(/Organization Translation Short is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Organization Translation is required./)).toBeInTheDocument();
+        expect(screen.getByText(/Inactive must be true or false./)).toBeInTheDocument();
 
         // test overflow on orgCode:
         const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
@@ -106,7 +106,7 @@ describe("UCSBOrganization tests", () => {
         fireEvent.click(submitButton);
 
         await waitFor(() => {
-            expect(screen.getByText(/inactive must be true or false./)).toBeInTheDocument();
+            expect(screen.getByText(/Inactive must be true or false./)).toBeInTheDocument();
         });
 
     });
