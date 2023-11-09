@@ -24,20 +24,6 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
     return (
         <Form onSubmit={handleSubmit(submitAction)}>
 
-            {initialContents && (
-                <Form.Group className="mb-3" >
-                    <Form.Label htmlFor="id">Id</Form.Label>
-                    <Form.Control
-                        data-testid={testIdPrefix + "-id"}
-                        id="id"
-                        type="text"
-                        {...register("id")}
-                        value={initialContents.id}
-                        disabled
-                    />
-                </Form.Group>
-            )}
-
             <Form.Group className="mb-3" >
                 <Form.Label htmlFor="orgCode">Organization Code</Form.Label>
                 <Form.Control
@@ -46,11 +32,7 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     type="text"
                     isInvalid={Boolean(errors.orgCode)}
                     {...register("orgCode", {
-                        required: "Organization Code is required.",
-                        maxLength : {
-                            value: 30,
-                            message: "Max length 30 characters"
-                        }
+                        required: "Organization Code is required."
                     })}
                 />
                 <Form.Control.Feedback type="invalid">

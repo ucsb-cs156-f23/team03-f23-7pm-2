@@ -51,8 +51,8 @@ describe("UCSBOrganization tests", () => {
             expect(header).toBeInTheDocument();
         });
 
-        expect(await screen.findByTestId(`${testId}-id`)).toBeInTheDocument();
-        expect(screen.getByText(`Id`)).toBeInTheDocument();
+        expect(await screen.findByTestId(`${testId}-orgCode`)).toBeInTheDocument();
+        expect(screen.getByText(`Organization Code`)).toBeInTheDocument();
     });
 
 
@@ -90,15 +90,6 @@ describe("UCSBOrganization tests", () => {
         expect(screen.getByText(/Organization Translation Short is required./)).toBeInTheDocument();
         expect(screen.getByText(/Organization Translation is required./)).toBeInTheDocument();
         expect(screen.getByText(/Inactive must be true or false./)).toBeInTheDocument();
-
-        // test overflow on orgCode:
-        const orgCodeInput = screen.getByTestId(`${testId}-orgCode`);
-        fireEvent.change(orgCodeInput, { target: { value: "a".repeat(31) } });
-        fireEvent.click(submitButton);
-
-        await waitFor(() => {
-            expect(screen.getByText(/Max length 30 characters/)).toBeInTheDocument();
-        });
 
         // test inactive is true or false:
         const inactiveInput = screen.getByTestId(`${testId}-inactive`);
