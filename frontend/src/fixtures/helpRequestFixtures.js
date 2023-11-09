@@ -2,12 +2,12 @@ const helpRequestFixtures = {
     oneHelpRequest:
     [
       {
-        "id": 1,
+        "id": "1",
         "requesterEmail" : "chrisgaucho@ucsb.edu",
         "teamId" : "team01",
         "tableOrBreakoutRoom" : "table",
-        "requestTime": "2023-11-04T21:31:01.212Z",
-        "explanation" : "dokku deployment",
+        "requestTime": "2023-11-04T21:31:01",
+        "explanation" : "Need help with dokku deployment",
         "solved" : "True"
       }
     ],
@@ -19,7 +19,7 @@ const helpRequestFixtures = {
             "requesterEmail" : "christinagaucho@ucsb.edu",
             "teamId" : "team02",
             "tableOrBreakoutRoom" : "breakoutRoom",
-            "requestTime": "2023-11-04T21:31:01.212Z",
+            "requestTime": "2023-11-04T21:31:01",
             "explanation" : "Felt quirky",
             "solved" : "True"
         },
@@ -28,19 +28,19 @@ const helpRequestFixtures = {
             "id": 3,
             "requesterEmail" : "christianoguacho@ucsb.edu",
             "teamId" : "team03",
-            "tableOrBreakoutRoom" : "team03",
-            "requestTime": "2023-11-04T21:31:01.212Z",
+            "tableOrBreakoutRoom" : "table",
+            "requestTime": "2023-11-04T21:31:01",
             "explanation" : "swagger bug",
             "solved" : "False"
         },
 
         {
             "id": 4,
-            "requesterEmail" : "@ucsb.edu",
-            "teamId" : "",
-            "tableOrBreakoutRoom" : "",
-            "requestTime": "2023-11-04T21:31:01.212Z",
-            "explanation" : "",
+            "requesterEmail" : "chris@ucsb.edu",
+            "teamId" : "team04",
+            "tableOrBreakoutRoom" : "table",
+            "requestTime": "2023-11-04T21:31:01",
+            "explanation" : "help",
             "solved" : "True"
         },
         
