@@ -34,7 +34,7 @@ export default function UCSBDiningCommonsMenuItemCreatePage({storybook = false})
 
     return (<BasicLayout>
         <div className="pt-2">
-            <h1>Create New UCSBDiningCommonsMenuItem</h1>
+            <h1>Create New UCSB Dining Commons Menu Item</h1>
             <UCSBDiningCommonsMenuItemForm submitAction={onSubmit}/>
         </div>
     </BasicLayout>)
