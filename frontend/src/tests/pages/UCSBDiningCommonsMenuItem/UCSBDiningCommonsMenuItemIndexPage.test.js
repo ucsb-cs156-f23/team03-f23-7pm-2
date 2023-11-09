@@ -105,6 +105,9 @@ describe("UCSBDiningCommonsMenuItemIndexPage tests", () => {
 
         expect(screen.queryByTestId("UCSBDinignCommonsMenuItemTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
         expect(screen.queryByTestId("UCSBDinignCommonsMenuItemTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
+
+        // assert that the Create button is not present when user isn't an admin
+        expect(screen.queryByText(/Create UCSB Dining Commons Menu Item/)).not.toBeInTheDocument();
     });
 
     test("renders empty table when backend unavailable, user only", async () => {
