@@ -107,7 +107,7 @@ function MenuItemReviewForm({ initialContents, submitAction, buttonLabel = "Crea
                             data-testid="MenuItemReviewForm-dateReviewed"
                             id="dateReviewed"
                             type="datetime-local"
-                            isInvalid={Boolean(errors.localDateTime)}
+                            isInvalid={Boolean(errors.dateReviewed)}
                             {...register("dateReviewed", { required: true, pattern: isodate_regex })}
                         />
                         <Form.Control.Feedback type="invalid">
