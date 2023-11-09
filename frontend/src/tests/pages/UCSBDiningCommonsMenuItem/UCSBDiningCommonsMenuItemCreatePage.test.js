@@ -32,7 +32,6 @@ jest.mock('react-router-dom', () => {
         }
     };
 });
-
 describe("UCSBDiningCommonsMenuItemCreatePage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
