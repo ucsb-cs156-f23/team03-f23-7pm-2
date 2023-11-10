@@ -2,7 +2,7 @@ const helpRequestFixtures = {
     oneHelpRequest:
     [
       {
-        "id": 1,
+        "id": "1",
         "requesterEmail" : "chrisgaucho@ucsb.edu",
         "teamId" : "team01",
         "tableOrBreakoutRoom" : "table",

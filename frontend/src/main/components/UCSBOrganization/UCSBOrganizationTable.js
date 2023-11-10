@@ -2,16 +2,19 @@ import React from "react";
 import OurTable, { ButtonColumn } from "main/components/OurTable";
 
 import { useBackendMutation } from "main/utils/useBackend";
-import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/helpRequestUtils"
+import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/UCSBOrganizationUtils"
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function HelpRequestsTable({ helpRequests, currentUser }) {
+export default function UCSBOrganizationTable({
+    ucsbOrganizations,
+    currentUser,
+    testIdPrefix = "UCSBOrganizationTable" }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/helprequests/edit/${cell.row.values.id}`)
+        navigate(`/ucsborganization/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -19,7 +22,7 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/helprequests/all"]
+        ["/api/ucsborganization/all"]
     );
     // Stryker restore all 
 
@@ -32,39 +35,31 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
             accessor: 'id', // accessor is the "key" in the data
         },
         {
-            Header: 'RequesterEmail',
-            accessor: 'requesterEmail',
+            Header: 'Organization Code',
+            accessor: 'orgCode',
         },
         {
-            Header: 'TeamId',
-            accessor: 'teamId',
+            Header: 'Organization Translation Short',
+            accessor: 'orgTranslationShort',
         },
         {
-            Header: 'TableOrBreakoutRoom',
-            accessor: 'tableOrBreakoutRoom',
+            Header: 'Organization Translation',
+            accessor: 'orgTranslation',
         },
         {
-            Header: 'RequestTime',
-            accessor: 'requestTime',
-        },
-        {
-            Header: 'Explanation',
-            accessor: 'explanation',
-        },
-        {
-            Header: 'Solved',
-            accessor: 'solved',
+            Header: 'Inactive',
+            accessor: 'inactive'
         }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
-        columns.push(ButtonColumn("Edit", "primary", editCallback, "HelpRequestsTable"));
-        columns.push(ButtonColumn("Delete", "danger", deleteCallback, "HelpRequestsTable"));
+        columns.push(ButtonColumn("Edit", "primary", editCallback, testIdPrefix));
+        columns.push(ButtonColumn("Delete", "danger", deleteCallback, testIdPrefix));
     } 
 
     return <OurTable
-        data={helpRequests}
+        data={ucsbOrganizations}
         columns={columns}
-        testid={"HelpRequestsTable"}
+        testid={testIdPrefix}
     />;
 };

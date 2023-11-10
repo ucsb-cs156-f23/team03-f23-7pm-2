@@ -18,6 +18,7 @@ describe("HelpRequestTable tests", () => {
 
   const expectedHeaders = ["id", "RequesterEmail", "TeamId", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
   const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "Solved"];
+
   const testId = "HelpRequestsTable";
 
   test("renders empty table correctly", () => {
@@ -77,6 +78,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("true");
+
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("christianoguacho@ucsb.edu");
@@ -195,6 +197,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-Solved`)).toHaveTextContent("true");
+
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();
