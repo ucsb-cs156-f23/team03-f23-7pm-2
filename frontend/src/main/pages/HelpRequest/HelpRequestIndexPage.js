@@ -35,13 +35,13 @@ export default function HelpRequestIndexPage() {
     } 
   };
 
-console.log(helprequests)
+// console.log(helprequests)
   return (
     <BasicLayout>
       <div className="pt-2">
         {createButton()}
         <h1>HelpRequests</h1>
-        <HelpRequestsTable currentUser={currentUser} />
+        <HelpRequestsTable helpRequests = {helprequests} currentUser={currentUser} />
       </div>
     </BasicLayout>
   )

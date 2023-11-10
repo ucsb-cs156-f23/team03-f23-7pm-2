@@ -2,13 +2,13 @@ const helpRequestFixtures = {
     oneHelpRequest:
     [
       {
-        "id": "1",
+        "id": 1,
         "requesterEmail" : "chrisgaucho@ucsb.edu",
         "teamId" : "team01",
         "tableOrBreakoutRoom" : "table",
         "requestTime": "2023-11-04T21:31:01",
         "explanation" : "Need help with dokku deployment",
-        "solved" : true
+        "solved" : "true"
       }
     ],
 
@@ -21,7 +21,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "breakoutRoom",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "Felt quirky",
-            "solved" : true
+            "solved" : "true"
         },
 
         {
@@ -31,7 +31,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "table",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "swagger bug",
-            "solved" : false
+            "solved" : "false"
         },
 
         {
@@ -41,7 +41,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "table",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "help",
-            "solved" : false
+            "solved" : "true"
         },
         
     ]

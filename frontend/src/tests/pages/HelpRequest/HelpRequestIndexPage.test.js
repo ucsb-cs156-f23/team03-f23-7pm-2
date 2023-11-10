@@ -26,7 +26,7 @@ describe("HelpRequestIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
-    const testId = "HelpRequestTable";
+    const testId = "HelpRequestsTable";
 
     const setupUserOnly = () => {
         axiosMock.reset();
@@ -124,7 +124,7 @@ describe("HelpRequestIndexPage tests", () => {
         setupAdminUser();
         const queryClient = new QueryClient();
         axiosMock.onGet("/api/helprequests/all").reply(200, helpRequestFixtures.threeHelpRequests);
-        axiosMock.onDelete("/api/helprequests").reply(200, "helprequest with id 2 was deleted");
+        axiosMock.onDelete("/api/helprequests").reply(200, "HelpRequest with id 2 was deleted");
 
         // act
         render(
@@ -138,7 +138,7 @@ describe("HelpRequestIndexPage tests", () => {
         // assert
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toBeInTheDocument(); });
 
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("2");
 
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
         expect(deleteButton).toBeInTheDocument();

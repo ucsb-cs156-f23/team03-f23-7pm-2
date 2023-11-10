@@ -52,31 +52,31 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-        // {
-        //     Header: 'RequesterEmail',
-        //     accessor: 'requesterEmail',
-        // },
-        // {
-        //     Header: 'TeamId',
-        //     accessor: 'teamId',
-        // },
-        // {
-        //     Header: 'TableOrBreakoutRoom',
-        //     accessor: 'tableOrBreakoutRoom',
-        // },
-        // {
-        //     Header: 'RequestTime',
-        //     accessor: 'requestTime',
-        // },
-        // {
-        //     Header: 'Explanation',
-        //     accessor: 'explanation',
-        // },
-        // {
-        //     Header: 'Solved',
-        //     accessor: (row, _rowIndex) => String(row.solved),
-        //     // accessor: 'solved',
-        // }
+        {
+            Header: 'RequesterEmail',
+            accessor: 'requesterEmail',
+        },
+        {
+            Header: 'TeamId',
+            accessor: 'teamId',
+        },
+        {
+            Header: 'TableOrBreakoutRoom',
+            accessor: 'tableOrBreakoutRoom',
+        },
+        {
+            Header: 'RequestTime',
+            accessor: 'requestTime',
+        },
+        {
+            Header: 'Explanation',
+            accessor: 'explanation',
+        },
+        {
+            Header: 'Solved',
+            accessor: (row, _rowIndex) => String(row.solved),
+            // accessor: 'solved',
+        }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
