@@ -83,6 +83,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
         expect(screen.getByTestId(`${testId}-cell-row-0-col-Inactive`)).toHaveTextContent("true");
 
         // for non-admin users, details button is visible, but the edit and delete buttons should not be visible
+        expect(screen.queryByText(/Create UCSB Organization/)).not.toBeInTheDocument();
         expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Delete-button")).not.toBeInTheDocument();
         expect(screen.queryByTestId("UCSBOrganizationTable-cell-row-0-col-Edit-button")).not.toBeInTheDocument();
     });
@@ -124,9 +125,7 @@ describe("UCSBOrganizationIndexPage tests", () => {
         );
 
         await waitFor(() => { expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toBeInTheDocument(); });
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslation`)).toHaveTextContent("Mu Delta");
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-orgTranslationShort`)).toHaveTextContent("Mu Delta");
-        expect(screen.getByTestId(`${testId}-cell-row-0-col-Inactive`)).toHaveTextContent("true");
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-orgCode`)).toHaveTextContent("MD");
 
         const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
         expect(deleteButton).toBeInTheDocument();
@@ -142,5 +141,3 @@ describe("UCSBOrganizationIndexPage tests", () => {
     });
 
 });
-
-
