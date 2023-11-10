@@ -26,8 +26,8 @@ describe("HelpRequestIndexPage tests", () => {
 
     const axiosMock = new AxiosMockAdapter(axios);
 
-    const testId = "HelpRequestsTable";
 
+    const testId = "HelpRequestsTable";
     const setupUserOnly = () => {
         axiosMock.reset();
         axiosMock.resetHistory();

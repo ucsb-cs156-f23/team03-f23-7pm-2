@@ -1,4 +1,5 @@
 import { render, screen, fireEvent, waitFor } from "@testing-library/react";
+
 import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { MemoryRouter } from "react-router-dom";
@@ -66,7 +67,6 @@ describe("HelpRequestCreatePage tests", () => {
         };
 
         axiosMock.onPost("/api/helprequests/post").reply(202, helpRequest);
-
         render(
             <QueryClientProvider client={queryClient}>
                 <MemoryRouter>
