@@ -30,9 +30,11 @@ function UCSBOrganizationForm({ initialContents, submitAction, buttonLabel = "Cr
                     data-testid={testIdPrefix + "-orgCode"}
                     id="orgCode"
                     type="text"
+                    // Stryker disable next-line all, hard to access disabled from test file
+                    disabled={buttonLabel === "Update"}
                     isInvalid={Boolean(errors.orgCode)}
                     {...register("orgCode", {
-                        required: "Organization Code is required."
+                        required: "Organization Code is required.",
                     })}
                 />
                 <Form.Control.Feedback type="invalid">

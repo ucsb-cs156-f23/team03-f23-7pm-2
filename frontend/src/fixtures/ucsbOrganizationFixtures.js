@@ -3,7 +3,7 @@ const ucsbOrganizationFixtures = {
         "orgCode": "MD",
         "orgTranslationShort": "Mu Delta",
         "orgTranslation": "Mu Delta",
-        "inactive": true
+        "inactive": "true"
     },
     threeOrganizations: [
         {
