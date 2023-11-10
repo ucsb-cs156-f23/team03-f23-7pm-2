@@ -14,7 +14,7 @@ export default function UCSBOrganizationTable({
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/ucsbOrganizations/edit/${cell.row.values.id}`)
+        navigate(`/ucsborganization/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -22,7 +22,7 @@ export default function UCSBOrganizationTable({
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/ucsbOrganizations/all"]
+        ["/api/ucsborganization/all"]
     );
     // Stryker restore all 
 
