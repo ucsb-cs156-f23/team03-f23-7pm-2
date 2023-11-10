@@ -7,10 +7,8 @@ import UCSBDatesIndexPage from "main/pages/UCSBDates/UCSBDatesIndexPage";
 import UCSBDatesCreatePage from "main/pages/UCSBDates/UCSBDatesCreatePage";
 import UCSBDatesEditPage from "main/pages/UCSBDates/UCSBDatesEditPage";
 
-import UCSBDiningCommonsMenuItemIndexPage
-    from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
-import UCSBDiningCommonsMenuItemCreatePage
-    from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
+import UCSBDiningCommonsMenuItemIndexPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemIndexPage";
+import UCSBDiningCommonsMenuItemCreatePage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemCreatePage";
 import UCSBDiningCommonsMenuItemEditPage from "main/pages/UCSBDiningCommonsMenuItem/UCSBDiningCommonsMenuItemEditPage";
 
 import RestaurantIndexPage from "main/pages/Restaurants/RestaurantIndexPage";
@@ -38,10 +36,6 @@ import ArticlesEditPage from "main/pages/Articles/ArticlesEditPage";
 import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewIndexPage";
 import MenuItemReviewCreatePage from "main/pages/MenuItemReview/MenuItemReviewCreatePage";
 import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
-
-import HelpRequestIndexPage from "main/pages/HelpRequest/HelpRequestIndexPage";
-import HelpRequestCreatePage from "main/pages/HelpRequest/HelpRequestCreatePage";
-import HelpRequestEditPage from "main/pages/HelpRequest/HelpRequestEditPage";
 
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
