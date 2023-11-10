@@ -136,7 +136,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-tableOrBreakoutRoom`)).toHaveTextContent("table");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("swagger bug");
-    expect(screen.getByTestId(`${testId}-cell-row-1-solved`)).toHaveTextContent("false");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("false");
     
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
