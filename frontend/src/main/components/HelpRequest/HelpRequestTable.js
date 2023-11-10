@@ -25,37 +25,58 @@ export default function HelpRequestsTable({ helpRequests, currentUser }) {
 
     // Stryker disable next-line all : TODO try to make a good test for this
     const deleteCallback = async (cell) => { deleteMutation.mutate(cell); }
-
+    
+    // const tempData = [
+    //     {
+    //       "id": 1,
+    //       "requesterEmail": "a",
+    //       "teamId": "team4",
+    //       "tableOrBreakoutRoom": "Table",
+    //       "requestTime": "2023-11-08T14:05:00",
+    //       "explanation": "help",
+    //       "solved": true
+    //     },
+    //     {
+    //       "id": 2,
+    //       "requesterEmail": "jonathancheng@umail.ucsb.edu",
+    //       "teamId": "team04",
+    //       "tableOrBreakoutRoom": "Table",
+    //       "requestTime": "2023-11-08T02:07:00",
+    //       "explanation": "Help",
+    //       "solved": false
+    //     }
+    //   ]
 
     const columns = [
         {
             Header: 'id',
             accessor: 'id', // accessor is the "key" in the data
         },
-        {
-            Header: 'RequesterEmail',
-            accessor: 'requesterEmail',
-        },
-        {
-            Header: 'TeamId',
-            accessor: 'teamId',
-        },
-        {
-            Header: 'TableOrBreakoutRoom',
-            accessor: 'tableOrBreakoutRoom',
-        },
-        {
-            Header: 'RequestTime',
-            accessor: 'requestTime',
-        },
-        {
-            Header: 'Explanation',
-            accessor: 'explanation',
-        },
-        {
-            Header: 'Solved',
-            accessor: 'solved',
-        }
+        // {
+        //     Header: 'RequesterEmail',
+        //     accessor: 'requesterEmail',
+        // },
+        // {
+        //     Header: 'TeamId',
+        //     accessor: 'teamId',
+        // },
+        // {
+        //     Header: 'TableOrBreakoutRoom',
+        //     accessor: 'tableOrBreakoutRoom',
+        // },
+        // {
+        //     Header: 'RequestTime',
+        //     accessor: 'requestTime',
+        // },
+        // {
+        //     Header: 'Explanation',
+        //     accessor: 'explanation',
+        // },
+        // {
+        //     Header: 'Solved',
+        //     accessor: (row, _rowIndex) => String(row.solved),
+        //     // accessor: 'solved',
+        // }
     ];
 
     if (hasRole(currentUser, "ROLE_ADMIN")) {
