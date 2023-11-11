@@ -18,6 +18,7 @@ describe("HelpRequestTable tests", () => {
 
   const expectedHeaders = ["id", "RequesterEmail", "TeamId", "TableOrBreakoutRoom", "RequestTime", "Explanation", "Solved"];
   const expectedFields = ["id", "requesterEmail", "teamId", "tableOrBreakoutRoom", "requestTime", "explanation", "solved"];
+
   const testId = "HelpRequestsTable";
 
   test("renders empty table correctly", () => {
@@ -76,7 +77,8 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-tableOrBreakoutRoom`)).toHaveTextContent("breakoutRoom");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("True");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("true");
+
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("christianoguacho@ucsb.edu");
@@ -84,7 +86,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-tableOrBreakoutRoom`)).toHaveTextContent("table");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("swagger bug");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("False");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("false");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -126,7 +128,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-tableOrBreakoutRoom`)).toHaveTextContent("breakoutRoom");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("True");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("true");
 
     expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("3");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requesterEmail`)).toHaveTextContent("christianoguacho@ucsb.edu");
@@ -134,7 +136,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-1-col-tableOrBreakoutRoom`)).toHaveTextContent("table");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-1-col-explanation`)).toHaveTextContent("swagger bug");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("False");
+    expect(screen.getByTestId(`${testId}-cell-row-1-col-solved`)).toHaveTextContent("false");
     
     expect(screen.queryByText("Delete")).not.toBeInTheDocument();
     expect(screen.queryByText("Edit")).not.toBeInTheDocument();
@@ -161,7 +163,7 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-tableOrBreakoutRoom`)).toHaveTextContent("breakoutRoom");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("True");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("true");
 
     const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
     expect(editButton).toBeInTheDocument();
@@ -194,7 +196,8 @@ describe("HelpRequestTable tests", () => {
     expect(screen.getByTestId(`${testId}-cell-row-0-col-tableOrBreakoutRoom`)).toHaveTextContent("breakoutRoom");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-requestTime`)).toHaveTextContent("2023-11-04T21:31:01");
     expect(screen.getByTestId(`${testId}-cell-row-0-col-explanation`)).toHaveTextContent("Felt quirky");
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("True");
+    expect(screen.getByTestId(`${testId}-cell-row-0-col-solved`)).toHaveTextContent("true");
+
 
     const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
     expect(deleteButton).toBeInTheDocument();

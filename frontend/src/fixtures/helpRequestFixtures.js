@@ -8,7 +8,7 @@ const helpRequestFixtures = {
         "tableOrBreakoutRoom" : "table",
         "requestTime": "2023-11-04T21:31:01",
         "explanation" : "Need help with dokku deployment",
-        "solved" : "True"
+        "solved" : "true"
       }
     ],
 
@@ -21,7 +21,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "breakoutRoom",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "Felt quirky",
-            "solved" : "True"
+            "solved" : "true"
         },
 
         {
@@ -31,7 +31,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "table",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "swagger bug",
-            "solved" : "False"
+            "solved" : "false"
         },
 
         {
@@ -41,7 +41,7 @@ const helpRequestFixtures = {
             "tableOrBreakoutRoom" : "table",
             "requestTime": "2023-11-04T21:31:01",
             "explanation" : "help",
-            "solved" : "True"
+            "solved" : "true"
         },
         
     ]
