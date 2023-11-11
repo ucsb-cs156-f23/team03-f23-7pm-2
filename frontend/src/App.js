@@ -119,6 +119,7 @@ function App() {
             <>
               <Route exact path="/menuitemreview" element={<MenuItemReviewIndexPage />} />
               <Route exact path="/articles" element={<ArticlesIndexPage />} />
+              <Route exact path="/helprequests" element={<HelpRequestIndexPage />} />
             </>
           )
         }
@@ -129,6 +130,8 @@ function App() {
               <Route exact path="/menuitemreview/create" element={<MenuItemReviewCreatePage />} />
               <Route exact path="/articles/edit/:id" element={<ArticlesEditPage />} />
               <Route exact path="/articles/create" element={<ArticlesCreatePage />} />
+              <Route exact path="/helprequests/edit/:id" element={<HelpRequestEditPage />} />
+              <Route exact path="/helprequests/create" element={<HelpRequestCreatePage />} />
             </>
           )
         }
