@@ -1,5 +1,5 @@
 import BasicLayout from "main/layouts/BasicLayout/BasicLayout";
-import RecommendationForm from "main/components/RecommendationRequest/RecommendationRequestForm";
+import RecommendationRequestForm from "main/components/RecommendationRequest/RecommendationRequestForm";
 import { Navigate } from 'react-router-dom'
 import { useBackendMutation } from "main/utils/useBackend";
 import { toast } from "react-toastify";
@@ -44,7 +44,7 @@ export default function RecommendationRequestCreatePage({storybook=false}) {
     <BasicLayout>
       <div className="pt-2">
           <h1>Create New Recommendation Request</h1>
-          <RecommendationForm submitAction={onSubmit} />
+          <RecommendationRequestForm submitAction={onSubmit} />
 
       </div>
     </BasicLayout>
