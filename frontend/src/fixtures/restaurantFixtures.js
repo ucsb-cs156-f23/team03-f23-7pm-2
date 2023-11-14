@@ -4,7 +4,7 @@ const restaurantFixtures = {
       {
        "id": 1,
         "name": "The Habit",
-        "description": "Burgers and Fries"      
+        "description": "Burgers and Fries"    
       }
     ],
 
