@@ -18,25 +18,25 @@ const Template = (args) => {
 export const Empty = Template.bind({});
 
 Empty.args = {
-    RecommendationRequest: []
+    recommendationrequests: []
 };
 
 export const ThreeItemsOrdinaryUser = Template.bind({});
 
 ThreeItemsOrdinaryUser.args = {
-    RecommendationRequest: recommendationRequestFixtures.threeRecommendation,
+    recommendationrequests: recommendationRequestFixtures.threeRecommendation,
     currentUser: currentUserFixtures.userOnly,
 };
 
 export const ThreeItemsAdminUser = Template.bind({});
 ThreeItemsAdminUser.args = {
-    RecommendationRequest: recommendationRequestFixtures.threeRecommendation,
+    recommendationrequests: recommendationRequestFixtures.threeRecommendation,
     currentUser: currentUserFixtures.adminUser,
 }
 
 ThreeItemsAdminUser.parameters = {
     msw: [
-        rest.delete('/api/RecommendationRequest', (req, res, ctx) => {
+        rest.delete('/api/recommendationrequest', (req, res, ctx) => {
             window.alert("DELETE: " + JSON.stringify(req.url));
             return res(ctx.status(200),ctx.json({}));
         }),
