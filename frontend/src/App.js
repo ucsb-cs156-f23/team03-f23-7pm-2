@@ -37,6 +37,10 @@ import MenuItemReviewIndexPage from "main/pages/MenuItemReview/MenuItemReviewInd
 import MenuItemReviewCreatePage from "main/pages/MenuItemReview/MenuItemReviewCreatePage";
 import MenuItemReviewEditPage from "main/pages/MenuItemReview/MenuItemReviewEditPage";
 
+import RecommendationRequestCreatePage from "main/pages/RecommendationRequest/RecommendationRequestCreatePage";
+import RecommendationRequestEditPage from "main/pages/RecommendationRequest/RecommendationRequestEditPage";
+import RecommendationRequestIndexPage from "main/pages/RecommendationRequest/RecommendationRequestIndexPage";
+
 import { hasRole, useCurrentUser } from "main/utils/currentUser";
 
 import "bootstrap/dist/css/bootstrap.css";
@@ -154,6 +158,21 @@ function App() {
               <Route exact path="/ucsborganization/create" element={<UCSBOrganizationCreatePage />} />
               <Route exact path="/helprequests/edit/:id" element={<HelpRequestEditPage />} />
               <Route exact path="/helprequests/create" element={<HelpRequestCreatePage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_USER") && (
+            <>
+              <Route exact path="/recommendationrequest" element={<RecommendationRequestIndexPage />} />
+            </>
+          )
+        }
+        {
+          hasRole(currentUser, "ROLE_ADMIN") && (
+            <>
+              <Route exact path="/recommendationrequest/edit/:id" element={<RecommendationRequestEditPage />} />
+              <Route exact path="/recommendationrequest/create" element={<RecommendationRequestCreatePage />} />
             </>
           )
         }
