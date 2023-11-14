@@ -14,129 +14,129 @@ jest.mock('react-router-dom', () => ({
 }));
 
 describe("UserTable tests", () => {
-  const queryClient = new QueryClient();
+    const queryClient = new QueryClient();
 
-  test("Has the expected column headers and content for ordinary user", () => {
+    test("Has the expected column headers and content for ordinary user", () => {
 
-    const currentUser = recommendationRequestFixtures.userOnly;
+        const currentUser = recommendationRequestFixtures.userOnly;
 
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
+                </MemoryRouter>
+            </QueryClientProvider>
 
-    );
+        );
 
-    const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
-    const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
-    const testId = "RecommendationRequestTable";
+        const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
+        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
+        const testId = "RecommendationRequestTable";
 
-    expectedHeaders.forEach((headerText) => {
-      const header = screen.getByText(headerText);
-      expect(header).toBeInTheDocument();
+        expectedHeaders.forEach((headerText) => {
+            const header = screen.getByText(headerText);
+            expect(header).toBeInTheDocument();
+        });
+
+        expectedFields.forEach((field) => {
+            const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
+            expect(header).toBeInTheDocument();
+        });
+
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
+
+        const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
+        expect(editButton).not.toBeInTheDocument();
+
+        const deleteButton = screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`);
+        expect(deleteButton).not.toBeInTheDocument();
+
     });
 
-    expectedFields.forEach((field) => {
-      const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
-      expect(header).toBeInTheDocument();
+    test("Has the expected colum headers and content for adminUser", () => {
+
+        const currentUser = currentUserFixtures.adminUser;
+
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
+                </MemoryRouter>
+            </QueryClientProvider>
+
+        );
+
+        const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
+        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
+        const testId = "RecommendationRequestTable";
+
+        expectedHeaders.forEach((headerText) => {
+            const header = screen.getByText(headerText);
+            expect(header).toBeInTheDocument();
+        });
+
+        expectedFields.forEach((field) => {
+            const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
+            expect(header).toBeInTheDocument();
+        });
+
+        expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+
+        const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
+        expect(editButton).toBeInTheDocument();
+        expect(editButton).toHaveClass("btn-primary");
+
+        const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
+        expect(deleteButton).toHaveClass("btn-danger");
+
     });
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
-    expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
+    test("Edit button navigates to the edit page for admin user", async () => {
 
-    const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
-    expect(editButton).not.toBeInTheDocument();
+        const currentUser = currentUserFixtures.adminUser;
 
-    const deleteButton = screen.queryByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    expect(deleteButton).not.toBeInTheDocument();
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
+                </MemoryRouter>
+            </QueryClientProvider>
 
-  });
+        );
 
-  test("Has the expected colum headers and content for adminUser", () => {
+        await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
 
-    const currentUser = currentUserFixtures.adminUser;
+        const editButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Edit-button`);
+        expect(editButton).toBeInTheDocument();
 
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
+        fireEvent.click(editButton);
 
-    );
+        await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequest/edit/1'));
 
-    const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
-    const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
-    const testId = "RecommendationRequestTable";
 
-    expectedHeaders.forEach((headerText) => {
-      const header = screen.getByText(headerText);
-      expect(header).toBeInTheDocument();
     });
 
-    expectedFields.forEach((field) => {
-      const header = screen.getByTestId(`${testId}-cell-row-0-col-${field}`);
-      expect(header).toBeInTheDocument();
-    });
+    test("Delete button calls delete callback", async () => {
+        const currentUser = currentUserFixtures.adminUser;
 
-    expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
-    expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        render(
+            <QueryClientProvider client={queryClient}>
+                <MemoryRouter>
+                    <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
+                </MemoryRouter>
+            </QueryClientProvider>
+        );
 
-    const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
-    expect(editButton).toBeInTheDocument();
-    expect(editButton).toHaveClass("btn-primary");
+        await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
 
-    const deleteButton = screen.getByTestId(`${testId}-cell-row-0-col-Delete-button`);
-    expect(deleteButton).toBeInTheDocument();
-    expect(deleteButton).toHaveClass("btn-danger");
+        const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
+        expect(deleteButton).toBeInTheDocument();
 
-  });
-
-  test("Edit button navigates to the edit page for admin user", async () => {
-
-    const currentUser = currentUserFixtures.adminUser;
-
-    render(
-      <QueryClientProvider client={queryClient}>
-        <MemoryRouter>
-          <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
-        </MemoryRouter>
-      </QueryClientProvider>
-
-    );
-
-    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
-
-    const editButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Edit-button`);
-    expect(editButton).toBeInTheDocument();
-    
-    fireEvent.click(editButton);
-
-    await waitFor(() => expect(mockedNavigate).toHaveBeenCalledWith('/recommendationrequest/edit/1'));
-
-
-  });
-
-  test("Delete button calls delete callback", async () => {
-    const currentUser = currentUserFixtures.adminUser;
-
-    render(
-        <QueryClientProvider client={queryClient}>
-            <MemoryRouter>
-                <RecommendationRequestTable recommendationrequests={recommendationRequestFixtures.threeRecommendation} currentUser={currentUser} />
-            </MemoryRouter>
-        </QueryClientProvider>
-    );
-
-    await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
-
-    const deleteButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Delete-button`);
-    expect(deleteButton).toBeInTheDocument();
-
-    fireEvent.click(deleteButton);
+        fireEvent.click(deleteButton);
     });
 
 });
