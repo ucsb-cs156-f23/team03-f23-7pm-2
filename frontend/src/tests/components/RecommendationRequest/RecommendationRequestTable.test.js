@@ -30,7 +30,7 @@ describe("UserTable tests", () => {
         );
 
         const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
-        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
+        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "Done"];
         const testId = "RecommendationRequestTable";
 
         expectedHeaders.forEach((headerText) => {
@@ -44,7 +44,21 @@ describe("UserTable tests", () => {
         });
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-requesterEmail`)).toHaveTextContent("requesterEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-professorEmail`)).toHaveTextContent("professorEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-explanation`)).toHaveTextContent("explanation1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateRequested`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateNeeded`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`)).toHaveTextContent("false");
+        
         expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-requesterEmail`)).toHaveTextContent("requesterEmail2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-professorEmail`)).toHaveTextContent("professorEmail2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-explanation`)).toHaveTextContent("explanation2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-dateRequested`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-dateNeeded`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-Done`)).toHaveTextContent("false");
+        
         expect(screen.getByTestId(`${testId}-cell-row-2-col-id`)).toHaveTextContent("3");
 
         const editButton = screen.queryByTestId(`${testId}-cell-row-0-col-Edit-button`);
@@ -69,7 +83,7 @@ describe("UserTable tests", () => {
         );
 
         const expectedHeaders = ["Id", "RequesterEmail", "ProfessorEmail", "Explanation", "DateRequested", "DateNeeded", "Done"];
-        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done"];
+        const expectedFields = ["id", "requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "Done"];
         const testId = "RecommendationRequestTable";
 
         expectedHeaders.forEach((headerText) => {
@@ -83,7 +97,20 @@ describe("UserTable tests", () => {
         });
 
         expect(screen.getByTestId(`${testId}-cell-row-0-col-id`)).toHaveTextContent("1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-requesterEmail`)).toHaveTextContent("requesterEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-professorEmail`)).toHaveTextContent("professorEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-explanation`)).toHaveTextContent("explanation1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateRequested`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateNeeded`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`)).toHaveTextContent("false");
+
         expect(screen.getByTestId(`${testId}-cell-row-1-col-id`)).toHaveTextContent("2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-requesterEmail`)).toHaveTextContent("requesterEmail2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-professorEmail`)).toHaveTextContent("professorEmail2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-explanation`)).toHaveTextContent("explanation2");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-dateRequested`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-dateNeeded`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-1-col-Done`)).toHaveTextContent("false");
 
         const editButton = screen.getByTestId(`${testId}-cell-row-0-col-Edit-button`);
         expect(editButton).toBeInTheDocument();
@@ -109,6 +136,13 @@ describe("UserTable tests", () => {
         );
 
         await waitFor(() => { expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-id`)).toHaveTextContent("1"); });
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-requesterEmail`)).toHaveTextContent("requesterEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-professorEmail`)).toHaveTextContent("professorEmail1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-explanation`)).toHaveTextContent("explanation1");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateRequested`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-dateNeeded`)).toHaveTextContent("2023-11-02T00:00:00");
+        expect(screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Done`)).toHaveTextContent("false");
+
 
         const editButton = screen.getByTestId(`RecommendationRequestTable-cell-row-0-col-Edit-button`);
         expect(editButton).toBeInTheDocument();

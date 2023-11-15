@@ -96,4 +96,21 @@ describe("RecommendationRequestForm tests", () => {
 
     });
 
+
+    test("that the correct data-testids are present", () => {
+        render(
+            <QueryClientProvider client={queryClient}>
+                <Router>
+                    <RecommendationRequestForm />
+                </Router>
+            </QueryClientProvider>
+        );
+    
+        const testIds = ["requesterEmail", "professorEmail", "explanation", "dateRequested", "dateNeeded", "done", "submit", "cancel"];
+        
+        testIds.forEach((id) => {
+            expect(screen.getByTestId(`RecommendationRequestForm-${id}`)).toBeInTheDocument();
+        });
+    });
+
 });
