@@ -6,12 +6,12 @@ import { cellToAxiosParamsDelete, onDeleteSuccess } from "main/utils/Recommendat
 import { useNavigate } from "react-router-dom";
 import { hasRole } from "main/utils/currentUser";
 
-export default function RecommendationRequestTable({ recommendationrequests, currentUser }) {
+export default function RecommendationRequestTable({ recommendations, currentUser }) {
 
     const navigate = useNavigate();
 
     const editCallback = (cell) => {
-        navigate(`/recommendationrequest/edit/${cell.row.values.id}`)
+        navigate(`/RecommendationRequest/edit/${cell.row.values.id}`)
     }
 
     // Stryker disable all : hard to test for query caching
@@ -19,7 +19,7 @@ export default function RecommendationRequestTable({ recommendationrequests, cur
     const deleteMutation = useBackendMutation(
         cellToAxiosParamsDelete,
         { onSuccess: onDeleteSuccess },
-        ["/api/recommendationrequest/all"]
+        ["/api/RecommendationRequest/all"]
     );
     // Stryker restore all 
 
@@ -64,7 +64,7 @@ export default function RecommendationRequestTable({ recommendationrequests, cur
     } 
 
     return <OurTable
-        data={recommendationrequests}
+        data={recommendations}
         columns={columns}
         testid={"RecommendationRequestTable"}
     />;
